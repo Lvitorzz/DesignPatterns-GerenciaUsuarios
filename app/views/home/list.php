@@ -10,7 +10,7 @@
     <h1>
     <?php
     if (isset($_SESSION['userType'])) {
-        echo ($_SESSION['userType'] === 'vendedor') ? 'Vendedores Cadastrados' : 'Compradores Cadastrados';
+        echo ($_SESSION['userType'] === 'vendedor') ? 'Compradores Cadastrados' : 'Vendedores Cadastrados';
     } else {
         echo 'Tipo de usuário não definido.';
     }

@@ -42,19 +42,21 @@ class AuthController {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $userType = $_POST['userType'];
-
-            if ($userType === 'comprador') {
+    
+            if ($userType === 'vendedor') {
                 $factory = new SellerFactory();
-            } elseif ($userType === 'vendedor') {
+            } elseif ($userType === 'comprador') {
                 $factory = new BuyerFactory();
             } else {
                 $error = "Tipo de usuário inválido!";
                 require_once 'C:/xampp/htdocs/GerenciaUsuario/app/views/auth/register.php';
                 return;
             }
-
+    
+            // Criando o usuário com a fábrica
             $this->user = $factory->createUser($name, $email, $password, $this->db);
-
+    
+            // Persistindo o usuário criado no banco de dados
             if ($this->user->createUser()) {
                 header('Location: /GerenciaUsuario/public/login');
                 exit();
@@ -62,6 +64,7 @@ class AuthController {
                 $error = "Erro ao criar conta!";
             }
         }
+    
         require_once 'C:/xampp/htdocs/GerenciaUsuario/app/views/auth/register.php';
     }
 
