@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <title>Registrar</title>
     <link rel="stylesheet" href="../public/css/style.css">
+    <script>
+        function updateField() {
+            var userType = document.getElementById("userType").value;
+            var label = document.getElementById("labelDocumento");
+            var input = document.getElementById("documento");
+
+            if (userType === "vendedor") {
+                label.innerText = "CNPJ:";
+                input.setAttribute("name", "cnpj");
+            } else {
+                label.innerText = "CPF:";
+                input.setAttribute("name", "cpf");
+            }
+        }
+
+        window.onload = function() {
+            updateField();
+        };
+    </script>
 </head>
 <body>
     <div class="container">
@@ -22,10 +41,14 @@
             <input type="password" name="password" required>
             <br>
             <label for="userType">Tipo de Usuário:</label>
-            <select name="userType" id="userType">
+            <select name="userType" id="userType" onchange="updateField()">
                 <option value="comprador">Comprador</option>
                 <option value="vendedor">Vendedor</option>
             </select>
+            <br>
+            <label id="labelDocumento" for="documento">CPF:</label>
+            <input type="text" id="documento" required>
+            <br>
             <button type="submit">Registrar</button>
             <p>Já tem uma conta? <a href="/GerenciaUsuario/public/login">Faça login aqui</a></p>
         </form>

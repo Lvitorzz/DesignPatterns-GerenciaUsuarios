@@ -89,12 +89,12 @@ class User {
         return false;
     }
 
-    public function getUsers() {
-        $query = "SELECT id_user, name, email FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    public function getUsers($userStrategy) {
+        if ($userStrategy) {    
+            return $userStrategy->listarUsuarios($this->conn);
+        } else {
+            throw new Exception("Erro ao listar. Nenhuma estratégia definida.");
+        }
     }
 
     public function getUserById() {

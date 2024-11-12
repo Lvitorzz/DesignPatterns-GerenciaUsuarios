@@ -1,11 +1,15 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../models/User.php';
+require_once __DIR__ . '/../strategy/BuyerStrategy.php';
+require_once __DIR__ . '/../strategy/SellerStrategy.php';
+require_once __DIR__ . '/../strategy/UserStrategy.php';
+
 
 class IndexController {
     private $db;
     private $user;
-    private $users;
+    private $userStrategy;
 
     public function __construct() {
         $database = new Database();
@@ -23,7 +27,12 @@ class IndexController {
     }
 
     public function read() {
-        $users = $this->user->getUsers();
+        $this->userStrategy = $_SESSION['userType'];
+        if($this->userStrategy === 'vendedor'){
+            $users = $this->user->getUsers(new SellerStrategy);
+        } else {
+            $users = $this->user->getUsers(new BuyerStrategy);
+        }
         require_once 'C:/xampp/htdocs/GerenciaUsuario/app/views/home/list.php';
     }
 

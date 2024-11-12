@@ -27,6 +27,7 @@ class AuthController {
             if ($user) {
                 $_SESSION['user_id'] = $user['id_user'];
                 $_SESSION['user_name'] = $user['name'];
+                $_SESSION['userType'] = $user['userType'];
                 header('Location: /GerenciaUsuario/public/home');
             } else {
                 $error = "Credenciais inválidas!";

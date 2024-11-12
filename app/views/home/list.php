@@ -7,13 +7,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Lista de Usuários Cadastrados</h1>
+    <h1>
+    <?php
+    if (isset($_SESSION['userType'])) {
+        echo ($_SESSION['userType'] === 'vendedor') ? 'Vendedores Cadastrados' : 'Compradores Cadastrados';
+    } else {
+        echo 'Tipo de usuário não definido.';
+    }
+    ?>
+</h1>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Email</th>
+                    <th>Usuario</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +32,7 @@
                             <td><?php echo htmlspecialchars($user['id_user']); ?></td>
                             <td><?php echo htmlspecialchars($user['name']); ?></td>
                             <td><?php echo htmlspecialchars($user['email']); ?></td>
+                            <td><?php echo htmlspecialchars($user['userType']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>
