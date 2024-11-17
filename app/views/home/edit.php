@@ -15,7 +15,7 @@
         <input type="email" name="email" value="<?php echo $user['email']; ?>" required>
         <br>
         <label for="password">Nova Senha:</label>
-        <input type="password" name="password" required>
+        <input type="password" name="password">
         <br>
         <button type="submit">Salvar</button>
     </form>

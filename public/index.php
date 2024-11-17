@@ -1,13 +1,10 @@
 <?php
-// Inicializar o sistema e roteamento
 require_once '../config/database.php';
 require_once '../app/controllers/AuthController.php';
 require_once '../app/controllers/IndexController.php';
 
-// Obter a URL solicitada
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// Roteamento básico
 switch ($uri) {
     case '/GerenciaUsuario/public/':
         $authController = new AuthController();
@@ -17,6 +14,9 @@ switch ($uri) {
     case '/GerenciaUsuario/public/login':
         $authController = new AuthController();
         $authController->login();
+        if (isset($_SESSION['user_id'])) {
+            header('Location: /GerenciaUsuario/public/home');
+        }
         break;
 
     case '/GerenciaUsuario/public/register':
@@ -37,6 +37,11 @@ switch ($uri) {
     case '/GerenciaUsuario/public/list':
         $indexController = new IndexController();
         $indexController->read();
+        break;
+
+    case '/GerenciaUsuario/public/painel':
+        $indexController = new IndexController();
+        $indexController->painel();
         break;
 
     case '/GerenciaUsuario/public/edit':

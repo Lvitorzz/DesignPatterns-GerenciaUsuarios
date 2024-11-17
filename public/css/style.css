@@ -6,17 +6,18 @@
 }
 
 body {
-    background-color: #0D0D0D;
+    background-color: #F5F5F5; /* Fundo claro */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    color: #333; /* Cor das letras em cinza escuro */
 }
 
 h1 {
     margin-bottom: 20px;
     font-size: 24px;
-    color: #0439D9;
+    color: #0439D9; /* Cor azul */
 }
 
 form {
@@ -24,14 +25,15 @@ form {
     flex-direction: column;
 }
 
-.container{
+.container {
     padding: 50px;
     border: 1px solid #0439D9;
     border-radius: 15px;
+    background-color: #FFFFFF; /* Fundo branco */
 }
 
 .container-home a {
-    color: white;
+    color: #333; /* Cor de texto escuro */
 }
 
 .container-home a:hover {
@@ -41,7 +43,7 @@ form {
 label {
     text-align: left;
     margin-bottom: 5px;
-    color: #D9D7D7;
+    color: #333; /* Cor das letras em cinza escuro */
 }
 
 input {
@@ -50,11 +52,13 @@ input {
     border-radius: 4px;
     border: 1px solid #D9D7D7;
     font-size: 16px;
+    background-color: #FFF; /* Fundo branco */
+    color: #333; /* Cor das letras nos inputs */
 }
 
 button {
     padding: 10px;
-    background-color: #0439D9;
+    background-color: #0439D9; /* Azul */
     color: white;
     border: none;
     border-radius: 4px;
@@ -68,12 +72,12 @@ button:hover {
 }
 
 p {
-    color: #D9D7D7;
+    color: #333; /* Cor das letras em cinza escuro */
     margin-top: 10px;
 }
 
 a {
-    color: #0439D9;
+    color: #0439D9; /* Azul */
     text-decoration: none;
     font-weight: bold;
 }
@@ -100,7 +104,7 @@ th, td {
 }
 
 th {
-    background-color: #0439D9;
+    background-color: #0439D9; /* Azul */
     color: white;
     text-transform: uppercase;
     font-size: 14px;
@@ -119,11 +123,11 @@ tbody tr:last-child td {
 }
 
 tr:nth-child(even) {
-    background-color: white;
+    background-color: #F9F9F9; /* Fundo bem claro para linhas pares */
 }
 
 tr:nth-child(odd) {
-    background-color: rgb(211, 211, 211);
+    background-color: #FFFFFF; /* Fundo branco para linhas ímpares */
 }
 
 td[colspan="3"] {
@@ -131,3 +135,39 @@ td[colspan="3"] {
     font-weight: bold;
     color: #777;
 }
+
+.container-painel a {
+    color: white;
+    text-decoration: none;
+}
+
+.container-register label[for="userType"] {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.container-register select#userType {
+    width: 100%;
+    padding: 12px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.container-register select#userType:focus {
+    border-color: #0439D9;
+}
+
+.container-register #labelDocumento {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 5px;
+}
+

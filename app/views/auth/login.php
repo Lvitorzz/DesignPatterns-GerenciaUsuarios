@@ -2,12 +2,12 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Acesse sua conta</title>
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
     <div class="container">
-    <h1>Login</h1>
+    <h1>Acesse sua conta</h1>
     <?php if (isset($error)): ?>
         <p><?php echo $error; ?></p>
     <?php endif; ?>

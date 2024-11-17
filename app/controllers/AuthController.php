@@ -27,6 +27,7 @@ class AuthController {
             if ($user) {
                 $_SESSION['user_id'] = $user['id_user'];
                 $_SESSION['user_name'] = $user['name'];
+                $_SESSION['document'] = $user['document'];
                 $_SESSION['userType'] = $user['userType'];
                 header('Location: /GerenciaUsuario/public/home');
             } else {
@@ -41,6 +42,7 @@ class AuthController {
             $name = $_POST['name'];
             $email = $_POST['email'];
             $password = $_POST['password'];
+            $document = $_POST['document'];
             $userType = $_POST['userType'];
     
             if ($userType === 'vendedor') {
@@ -53,10 +55,8 @@ class AuthController {
                 return;
             }
     
-            // Criando o usuário com a fábrica
-            $this->user = $factory->createUser($name, $email, $password, $this->db);
+            $this->user = $factory->createUser($name, $email, $password, $document, $this->db);
     
-            // Persistindo o usuário criado no banco de dados
             if ($this->user->createUser()) {
                 header('Location: /GerenciaUsuario/public/login');
                 exit();

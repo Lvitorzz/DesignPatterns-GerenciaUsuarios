@@ -5,7 +5,6 @@ require_once __DIR__ . '/../strategy/BuyerStrategy.php';
 require_once __DIR__ . '/../strategy/SellerStrategy.php';
 require_once __DIR__ . '/../strategy/UserStrategy.php';
 
-
 class IndexController {
     private $db;
     private $user;
@@ -18,12 +17,16 @@ class IndexController {
         session_start();
 
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /login');
+            header('Location: /GerenciaUsuario/public/login');
         }
     }
 
     public function index() {
         require_once 'C:/xampp/htdocs/GerenciaUsuario/app/views/home/home.php';
+    }
+
+    public function painel() {
+        require_once 'C:/xampp/htdocs/GerenciaUsuario/app/views/home/painel.php';
     }
 
     public function read() {
@@ -56,10 +59,7 @@ class IndexController {
 
     public function delete() {
         $this->user->id = $_SESSION['user_id'];
-        if ($this->user->deleteUser()) {
-            session_destroy();
-            header('Location: /GerenciaUsuario/public/delete');
-        }
+        $this->user->deleteUser();
     }
 }
 ?>

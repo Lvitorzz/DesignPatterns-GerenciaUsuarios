@@ -1,6 +1,6 @@
 <?php 
     interface UserTypeFactory {
-        public function createUser($name, $email, $password, $db);
+        public function createUser($name, $email, $password, $document, $db);
     }
 ?>
 

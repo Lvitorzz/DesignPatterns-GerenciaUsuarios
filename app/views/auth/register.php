@@ -2,20 +2,18 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Registrar</title>
+    <title>Faça seu cadastro</title>
     <link rel="stylesheet" href="../public/css/style.css">
     <script>
         function updateField() {
             var userType = document.getElementById("userType").value;
             var label = document.getElementById("labelDocumento");
-            var input = document.getElementById("documento");
+            var input = document.getElementById("document");
 
             if (userType === "vendedor") {
                 label.innerText = "CNPJ:";
-                input.setAttribute("name", "cnpj");
             } else {
                 label.innerText = "CPF:";
-                input.setAttribute("name", "cpf");
             }
         }
 
@@ -25,8 +23,8 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <h1>Registrar</h1>
+    <div class="container-register">
+        <h1>Faça seu cadastro</h1>
         <?php if (isset($error)): ?>
             <p><?php echo $error; ?></p>
         <?php endif; ?>
@@ -46,8 +44,8 @@
                 <option value="vendedor">Vendedor</option>
             </select>
             <br>
-            <label id="labelDocumento" for="documento">CPF:</label>
-            <input type="text" id="documento" required>
+            <label id="labelDocumento" for="document">CPF:</label>
+            <input type="text" id="document" name="document" required>
             <br>
             <button type="submit">Registrar</button>
             <p>Já tem uma conta? <a href="/GerenciaUsuario/public/login">Faça login aqui</a></p>

@@ -23,6 +23,7 @@
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Usuario</th>
+                    <th>Documento</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,7 @@
                             <td><?php echo htmlspecialchars($user['name']); ?></td>
                             <td><?php echo htmlspecialchars($user['email']); ?></td>
                             <td><?php echo htmlspecialchars($user['userType']); ?></td>
+                            <td><?php echo htmlspecialchars($user['document']); ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>
