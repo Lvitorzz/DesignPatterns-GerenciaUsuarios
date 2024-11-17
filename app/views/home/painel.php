@@ -48,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Bem-vindo</title>
     <link rel="stylesheet" href="../public/css/style.css">
     <style>
-        /* Estilo para o modal */
         #addCompraModal {
             display: none;
             position: fixed;
@@ -98,7 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button onclick="showModal('venda')">Adicionar Venda</button>
         <?php endif; ?>
 
-        <!-- Modal para adicionar compra -->
         <div id="addCompraModal">
             <h3>Adicionar</h3>
             <form method="POST">
